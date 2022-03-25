@@ -1,6 +1,6 @@
 html, body, #root {
     font: 0.9rem sans-serif;
-    background: #0a1f44;
+    background: #74C3CC;
     color: #1e2432;
     height: 100%;
     margin: 0;
@@ -67,7 +67,7 @@ p {
     margin-left: 0.2em;
     border-radius: 30px;
     color: #fff;
-    background: #ff8c00;
+    background: #74C3CC;
 }
  
 .city-icon {
