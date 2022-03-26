@@ -7,6 +7,7 @@ html, body, #root {
 }
  
 .main-container {
+    height: 100vh;
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418) ), url('https://i.ibb.co/zVg56v6/weatherbackground.jpg');
     background-size: cover;
     background-position: center;
@@ -25,7 +26,7 @@ html, body, #root {
     padding: 20px 7%;
     border-radius: 20px;
     border: none;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     background: rgba(250, 250, 250, 0.85);
 }
  
@@ -80,6 +81,28 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.info-circle{
+    color: #fff;
+    font-size: large;
+    margin-bottom: 2%;
+}
+.showInfo{
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 8%;
+    border-radius: 20px;
+    background: rgba(250, 250, 250, 0.85);
+    box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
+    margin-bottom: 5px;
+}
+.infoText{
+    text-align: center;
+    margin: 20px;
 }
  
 @media only screen and (max-width: 600px) {

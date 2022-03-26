@@ -1,25 +1,28 @@
 import React, {useState} from "react";
 import { getWeather } from "./api/getWeather";
-import 'bootstrap/dist/css/bootstrap.css';
 import './App.css'
 const App = () =>{
     const [query, setQuery] = useState('')
     const [weather, setWeather] = useState({})
+    const [showInfo, setShowInfo] = useState(false)
  
     const search = async (e) =>{
         if(e.key === 'Enter'){
             const data = await getWeather(query)
- 
+            console.log(data)
             setWeather(data);        
 
             setQuery('')
         }
     }
- 
+
     return(
         <div className="main-container">
             <input type='text' className="search" placeholder="Search..." value={query} onChange={(e)=>setQuery(e.target.value)} onKeyPress={search}/>
-            <i className="bi bi-info-circle"></i>
+            {showInfo? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
+            <i className="bi bi-info-circle info-circle" onClick={()=>setShowInfo(!showInfo)}></i>
+
+     
             {weather.main && (
                 <div className="city">
                     <h2 className="city-name">
