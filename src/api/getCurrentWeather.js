@@ -1,8 +1,8 @@
 import axios from "axios";
  
-export const getWeather = async (query) =>{
+export const getCurrentWeather = async (query) =>{
 
-    const {data} = await axios.get(process.env.REACT_APP_WEATHER_URL, {
+    const {data} = await axios.get(process.env.REACT_APP_CURRENT_WEATHER_URL, {
         params: {
             q: query,
             units: 'imperial',

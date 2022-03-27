@@ -1,5 +1,7 @@
 import React, {useState} from "react";
-import { getWeather } from "./api/getWeather";
+import { getCurrentWeather } from "./api/getCurrentWeather";
+import { getForecastWeather } from "./api/getForecastWeather.js";
+
 import './App.css'
 const App = () =>{
     const [query, setQuery] = useState('')
@@ -8,13 +10,18 @@ const App = () =>{
  
     const search = async (e) =>{
         if(e.key === 'Enter'){
-            const data = await getWeather(query)
-            console.log(data)
-            setWeather(data);        
+            const currentData = await getCurrentWeather(query)
+            console.log(currentData)
+            const forecastWeather = await getForecastWeather(currentData.coord.lat, currentData.coord.lon)
+            console.log(forecastWeather)
+            // let time = new Date(fourDayData.current.dt * 1000)
+
+          
 
             setQuery('')
         }
     }
+ 
 
     return(
         <div className="main-container">
@@ -23,6 +30,8 @@ const App = () =>{
             <i className="bi bi-info-circle info-circle" onClick={()=>setShowInfo(!showInfo)}></i>
 
      
+          
+ 
             {weather.main && (
                 <div className="city">
                     <h2 className="city-name">
@@ -39,6 +48,7 @@ const App = () =>{
                     </div>
                 </div>
             )}
+         
         </div>
     );
 }
