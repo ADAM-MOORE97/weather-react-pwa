@@ -7,7 +7,7 @@ const {data} = await axios.get(process.env.REACT_APP_FOUR_DAY_WEATHER_URL, {
         lat: lat,
         lon: lon,
         units: 'imperial',
-        exclude: 'minutely',
+        exclude: 'minutely,current',
         APPID: process.env.REACT_APP_WEATHER_API_KEY,
     }
 })
