@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import TwelveHourCarousel from "./TwelveHourCarousel";
 import './App.css'
 import SevenDayCarousel from "./SevenDayCarousel";
-import CurrentWeather from "./currentWeather";
+import CurrentWeather from "./CurrentWeather";
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     const [showInfo, setShowInfo] = useState(false)
     const [sevenDay, setSevenDay] = useState(false)
     const [twelveHour, setTwelveHour] = useState(false)
-    const [activeBtn, setActiveBtn] = useState('null')
+    const [activeBtn, setActiveBtn] = useState('')
 
     const search = async (e) => {
         if (e.key === 'Enter') {
