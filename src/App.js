@@ -44,6 +44,7 @@ const toggleActiveStyle = (params) =>{
 
     return (
         <div className="main-container">
+            
             <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
             {showInfo ? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
             <i className="bi bi-info-circle info-circle" onClick={() => setShowInfo(!showInfo)}></i>
@@ -61,6 +62,8 @@ const toggleActiveStyle = (params) =>{
                 <button id='7-day' className={toggleActiveStyle('7-day')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 7-Day</button>
                 <button id='12-hour' className={toggleActiveStyle('12-hour')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 12-Hour</button>
             </div>
+            
+           
         </div>
     );
 }
