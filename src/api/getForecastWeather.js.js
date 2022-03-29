@@ -1,8 +1,8 @@
 import axios from 'axios'
-import React from 'react'
+
 
 export const getForecastWeather = async (lat, lon) => {
-const {data} = await axios.get(process.env.REACT_APP_FOUR_DAY_WEATHER_URL, {
+const {data} = await axios.get(process.env.REACT_APP_FORECAST_WEATHER_URL, {
     params: {
         lat: lat,
         lon: lon,

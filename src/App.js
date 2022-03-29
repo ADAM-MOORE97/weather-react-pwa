@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { getCurrentWeather } from "./api/getCurrentWeather";
 import { getForecastWeather } from "./api/getForecastWeather.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -12,25 +12,21 @@ import CurrentWeather from "./CurrentWeather";
 const App = () => {
     const [query, setQuery] = useState('')
     const [weather, setWeather] = useState({})
-    const [forecastWeather, setForecastWeather] = useState({})
+
     const [showInfo, setShowInfo] = useState(false)
     const [sevenDay, setSevenDay] = useState(false)
     const [twelveHour, setTwelveHour] = useState(false)
-    const [activeBtn, setActiveBtn] = useState('current')
+    const [activeBtn, setActiveBtn] = useState('null')
 
     const search = async (e) => {
         if (e.key === 'Enter') {
             const currentData = await getCurrentWeather(query)
             setWeather(currentData)
             const forecastData = await getForecastWeather(currentData.coord.lat, currentData.coord.lon)
-            setForecastWeather(forecastData)
-            console.log(forecastData)
-            console.log(currentData)
             let halfDay = forecastData.hourly.slice(0, 12)
-            console.log(halfDay)
             setSevenDay({ name: currentData.name, country: currentData.sys.country, daily: forecastData.daily })
             setTwelveHour({ name: currentData.name, country: currentData.sys.country, hourly: halfDay })
-
+            setActiveBtn('current')
             setQuery('')
 
 
