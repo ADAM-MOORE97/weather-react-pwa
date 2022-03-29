@@ -16,6 +16,7 @@ const App = () => {
     const [showInfo, setShowInfo] = useState(false)
     const [sevenDay, setSevenDay] = useState(false)
     const [twelveHour, setTwelveHour] = useState(false)
+    const [activeBtn, setActiveBtn] = useState('current')
 
     const search = async (e) => {
         if (e.key === 'Enter') {
@@ -29,7 +30,7 @@ const App = () => {
             console.log(halfDay)
             setSevenDay({ name: currentData.name, country: currentData.sys.country, daily: forecastData.daily })
             setTwelveHour({ name: currentData.name, country: currentData.sys.country, hourly: halfDay })
-            // let time = new Date(fourDayData.current.dt * 1000)
+
             setQuery('')
 
 
@@ -37,24 +38,32 @@ const App = () => {
     }
   
 
+const toggleActiveStyle = (params) =>{
+    if(activeBtn === params){
+        return "btn select-btn active"
+    } else{
+        return "btn select-btn"
+    }
+}
+
     return (
         <div className="main-container">
             <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
             {showInfo ? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
             <i className="bi bi-info-circle info-circle" onClick={() => setShowInfo(!showInfo)}></i>
 
-            {/* {sevenDay ?
+            {sevenDay && activeBtn === '7-day' ?
          <SevenDayCarousel sevenDay={sevenDay}/>
-                : null} */}
-            {twelveHour ?
+                : null}
+            {twelveHour && activeBtn === '12-hour' ?
                 <TwelveHourCarousel twelveHour={twelveHour} />
                 : null}
 
-            {/* {weather.main? <CurrentWeather weather={weather}/> : null} */}
+            {weather.main && activeBtn === 'current'? <CurrentWeather weather={weather}/> : null}
             <div className="btn-list" id="my_styles">
-                <button className="btn select-btn"> Current</button>
-                <button className="btn select-btn"> 7-Day</button>
-                <button className="btn select-btn"> 12-Hour</button>
+                <button id='current' className={toggleActiveStyle('current')} onClick={(e)=>{setActiveBtn(e.target.id)}}> Current</button>
+                <button id='7-day' className={toggleActiveStyle('7-day')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 7-Day</button>
+                <button id='12-hour' className={toggleActiveStyle('12-hour')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 12-Hour</button>
             </div>
         </div>
     );

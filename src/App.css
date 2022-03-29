@@ -152,7 +152,7 @@ align-items: center;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-
+    margin-top: 2em;
 }
 .select-btn{
     padding: 0.2em 0.6em;
