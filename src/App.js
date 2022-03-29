@@ -6,7 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import TwelveHourCarousel from "./TwelveHourCarousel";
 import './App.css'
 import SevenDayCarousel from "./SevenDayCarousel";
-import CurrentWeather from "./CurrentWeather";
+import CurrentWeather from "./currentWeather";
 
 
 const App = () => {
