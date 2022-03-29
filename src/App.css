@@ -101,11 +101,12 @@ p {
 
 .info-circle{
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 1%;
+    cursor: pointer;
 }
 .showInfo{
-    height: 15px;
+    height: 2.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,6 +116,9 @@ p {
     background: rgba(250, 250, 250, 0.85);
     box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
     margin-bottom: 5px;
+}
+.showInfo p{
+    font-size: 1em;
 }
 .infoText{
     text-align: center;

@@ -1,5 +1,5 @@
 
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { getCurrentWeather } from "./api/getCurrentWeather";
 import { getForecastWeather } from "./api/getForecastWeather.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -7,7 +7,7 @@ import TwelveHourCarousel from "./TwelveHourCarousel";
 import './App.css'
 import SevenDayCarousel from "./SevenDayCarousel";
 import CurrentWeather from "./CurrentWeather";
-
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const App = () => {
     const [query, setQuery] = useState('')
@@ -32,38 +32,40 @@ const App = () => {
 
         }
     }
-  
 
-const toggleActiveStyle = (params) =>{
-    if(activeBtn === params){
-        return "btn select-btn active"
-    } else{
-        return "btn select-btn"
+
+    const toggleActiveStyle = (params) => {
+        if (activeBtn === params) {
+            return "btn select-btn active"
+        } else {
+            return "btn select-btn"
+        }
     }
-}
 
     return (
         <div className="main-container">
-            
+
             <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
             {showInfo ? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
-            <i className="bi bi-info-circle info-circle" onClick={() => setShowInfo(!showInfo)}></i>
+            <i className="bi bi-info-circle info-circle" onClick={() => {
+                setShowInfo(!showInfo)
+                setTimeout(()=> setShowInfo(false), 5000)}}></i>
 
             {sevenDay && activeBtn === '7-day' ?
-         <SevenDayCarousel sevenDay={sevenDay}/>
+                <SevenDayCarousel sevenDay={sevenDay} />
                 : null}
             {twelveHour && activeBtn === '12-hour' ?
                 <TwelveHourCarousel twelveHour={twelveHour} />
                 : null}
 
-            {weather.main && activeBtn === 'current'? <CurrentWeather weather={weather}/> : null}
+            {weather.main && activeBtn === 'current' ? <CurrentWeather weather={weather} /> : null}
             <div className="btn-list" id="my_styles">
-                <button id='current' className={toggleActiveStyle('current')} onClick={(e)=>{setActiveBtn(e.target.id)}}> Current</button>
-                <button id='7-day' className={toggleActiveStyle('7-day')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 7-Day</button>
-                <button id='12-hour' className={toggleActiveStyle('12-hour')} onClick={(e)=>{setActiveBtn(e.target.id)}}> 12-Hour</button>
+                <button id='current' className={toggleActiveStyle('current')} onClick={(e) => { setActiveBtn(e.target.id) }}> Current</button>
+                <button id='7-day' className={toggleActiveStyle('7-day')} onClick={(e) => { setActiveBtn(e.target.id) }}> 7-Day</button>
+                <button id='12-hour' className={toggleActiveStyle('12-hour')} onClick={(e) => { setActiveBtn(e.target.id) }}> 12-Hour</button>
             </div>
-            
-           
+
+
         </div>
     );
 }
