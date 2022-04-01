@@ -45,7 +45,7 @@ const App = () => {
     return (
         <div>
             <div className="header">
-            <img src="./images/logo.png"/>
+            <img src="./images/logo.png" alt='City Weather Checker Logo.'/>
             <h1>City Weather Checker</h1>
             </div>
         <div className="main-container">
