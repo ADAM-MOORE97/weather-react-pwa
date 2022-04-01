@@ -43,12 +43,12 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className="main">
             <div className="header">
-            <img src="./images/logo.png" alt='City Weather Checker Logo.'/>
+            <img width='120px' height='120px' src="./images/logo.png" alt='City Weather Checker Logo.'/>
             <h1>City Weather Checker</h1>
             </div>
-        <div className="main-container">
+        <div className="container">
                 
                 <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
                 {showInfo ? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
