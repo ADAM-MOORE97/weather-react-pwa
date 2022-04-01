@@ -7,16 +7,26 @@
 
 html, body, #root {
     font: 0.9rem sans-serif;
-    background: #74C3CC;
+    /* background: #74C3CC; */
+    background: #1e2432;
     color: #1e2432;
     height: 100vh;
     margin: 0;
     width: 100vw;
 }
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #74C3CC;
+}
+.header img{
+    width: 120px
+}
  
 .main-container {
-    height: 100vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.418) ), url('https://i.ibb.co/zVg56v6/weatherbackground.jpg');
+    height: 10vh;
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -37,9 +47,15 @@ html, body, #root {
     padding: 20px 7%;
     border-radius: 20px;
     border: none;
+    margin-top: 2%;
     margin-bottom: 1%;
     background: rgba(250, 250, 250, 0.85);
 }
+::placeholder {
+    
+    font-size: 1.5em;
+    text-align: center;
+  }
  
 .city {
     display: flex;
@@ -102,11 +118,11 @@ p {
 .info-circle{
     color: #fff;
     font-size: 20px;
-    margin-bottom: 1%;
+    margin-top: 1%;
     cursor: pointer;
 }
 .showInfo{
-    height: 2.5em;
+    height: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,23 +134,18 @@ p {
     margin-bottom: 5px;
 }
 .showInfo p{
-    font-size: 1em;
+    font-size: .75em;
 }
 .infoText{
     text-align: center;
     margin: 20px;
 }
-.carousel{
 
-display: flex;
-flex-direction: column;
-
-align-items: center; 
-
-
-}
 .slide{
     padding: 40px 20%;
+}
+.carousel .control-dots{
+    margin: 0px 0 !important;
 }
 
 .city-temp-forecast {
@@ -177,19 +188,23 @@ align-items: center;
 button.btn:active{
 opacity: 1;
 }
+
 @media only screen and (max-width: 600px) {
     .search {
         padding: 20px 10%;
     }
  
     .city {
-        padding: 40px 20%;
+        padding: 10px 20%;
+        
     }
     .slide{
-        padding: 40px 10%;
+  
+        padding: 25px 10%;
     }
     .main-container{
     overflow: hidden !important;
 
     }
+    /*  */
 }
