@@ -1,6 +1,6 @@
 {
-    "short_name": "Weather App PWA",
-    "name": "City Weather Check App",
+    "short_name": "CWC",
+    "name": "City Weather Checker PWA",
     "icons": [
         {
             "src": "/images/logo.png",

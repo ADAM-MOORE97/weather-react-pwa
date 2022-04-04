@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { getCurrentWeather } from "./api/getCurrentWeather";
 import { getForecastWeather } from "./api/getForecastWeather.js";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -28,6 +28,7 @@ const App = () => {
             setTwelveHour({ name: currentData.name, country: currentData.sys.country, hourly: halfDay })
             setActiveBtn('current')
             setQuery('')
+    
 
 
         }
@@ -45,16 +46,26 @@ const App = () => {
     return (
         <div className="main">
             <div className="header">
-            <img width='120px' height='120px' src="./images/logo.png" alt='City Weather Checker Logo.'/>
+            <img src="./images/header.png" alt='City Weather Checker Logo.'/>
             <h1>City Weather Checker</h1>
             </div>
+          {weather.main?   <div className="exit-container">
+            <div className="exit" onClick={()=>{
+                setWeather({})
+                setTwelveHour(false)
+                setSevenDay(false)}}>
+                        x
+                    </div>
+            </div> : null}
+       
         <div className="container">
-                
-                <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />
+                                    
+           {weather.main? null : <input type='text' className="search" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search} />}
                 {showInfo ? <div className="showInfo"><p className="infoText">Search by city name, ensure spelling is correct.</p></div> : null}
-                <i className="bi bi-info-circle info-circle" onClick={() => {
+               {weather.main? null : <i className="bi bi-info-circle info-circle" onClick={() => {
                     setShowInfo(!showInfo)
-                    setTimeout(()=> setShowInfo(false), 5000)}}></i>
+                    setTimeout(()=> setShowInfo(false), 5000)}}></i>}
+                 
     
                 {twelveHour.hourly && activeBtn === '12-hour' ?
                     <ForecastCarousel twelveHour={twelveHour}/>
@@ -62,11 +73,11 @@ const App = () => {
                     {sevenDay.daily && activeBtn === '7-day' ? <ForecastCarousel sevenDay={sevenDay}/>: null}
     
                 {weather.main && activeBtn === 'current' ? <CurrentWeather weather={weather} /> : null}
-                <div className="btn-list" id="my_styles">
+           {  weather.main?   <div className="btn-list" id="my_styles">
                     <button id='current' className={toggleActiveStyle('current')} onClick={(e) => { setActiveBtn(e.target.id) }}> Current</button>
                     <button id='7-day' className={toggleActiveStyle('7-day')} onClick={(e) => { setActiveBtn(e.target.id) }}> 7-Day</button>
                     <button id='12-hour' className={toggleActiveStyle('12-hour')} onClick={(e) => { setActiveBtn(e.target.id) }}> 12-Hour</button>
-                </div>
+                </div>: null}
     
     
             </div>
