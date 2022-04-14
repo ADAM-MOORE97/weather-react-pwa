@@ -1,6 +1,6 @@
 # City Weather Checker (PWA)
 
-CWC is a PWA utilizing the openweathermap API. Its built with ReactJS and custom CSS styling along with bootstrap icons. The intent was to have a passing PWA lighthouse score, with a fun design and to be user friendly to anyone who added it to their device.
+CWC is a PWA utilizing the openweathermap API. Its built with ReactJS and custom CSS styling along with bootstrap icons. The intent was to have a passing PWA lighthouse score, with a fun design and to be user friendly to anyone who added this app to their device.
 
 ## Getting Started
 Users: simply navigate to https://cityweatherchecker.netlify.app/
@@ -18,15 +18,15 @@ NPM INSTALL
 Search for a City using its name with correct spelling.
 
 # If city is found:
-Weather data for the current temperature and conditions will be return.
+Weather data for the current temperature and conditions will be returned.
 
 # Using the buttons under the current weather tile:
 
 =>7-Day will return a carousel with the next seven day's forecast.
-Information will include morning, day and night temperatures,
-and pictured icons with a breif description.
+Information will include morning, day and night temperatures;
+also pictured icons with a breif description.
 
-=>12-hour will turn a carousel with the hourly temperature for the city,
+=>12-hour will return a carousel with the hourly temperature for the city,
 along with the icon and description that relates to the conditions.
 
 =>Current will bring you the original tile.
@@ -36,9 +36,9 @@ along with the icon and description that relates to the conditions.
 will bring the user back to the search bar.
 
 #Downloadable
-This app was built with the Progressive Web App feature in mind
-of allowing a user to add this 'app' to their local device,
-and to rendered content in an offline matter if service is lost.
+This app was built with the Progressive Web App feature in mind.
+This allows a user to add this 'app' to their local device,
+and to rendered content in an offline manner if service is lost.
 ```
 
 ## Contributing
